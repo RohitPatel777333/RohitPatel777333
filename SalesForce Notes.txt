@@ -1,0 +1,33 @@
+LEC-28
+(
+ISPICKVAL( Status__c , 'Closed - Cancelled') ||
+ISPICKVAL( Status__c , 'Closed - Filled') ||
+ISPICKVAL( Status__c , 'Closed - Not Approved')) 
+&& 
+ISBLANK( Close_By__c )
+----------------------------------------------------------------------------------------------------------------------------
+AND(
+ISBLANK( Close_By__c ),
+OR(
+ISPICKVAL( Status__c , 'Closed - Cancelled'),
+ISPICKVAL( Status__c , 'Closed - Filled') ,
+ISPICKVAL( Status__c , 'Closed - Not Approved')
+)
+)
+-------------------------------------------------------------------------------------------------------------------------------
+LEC-31
+AND( Are_you_a_US_Citizen__c , Do_you_need_Visa__c ) 
+------------------------------------------------------------------------------------------------------------------------------
+LEC-34
+CASE(TEXT( Status__c ),
+'New Position', IMAGE("/resource/GreenTick","Green",28,24) ,
+'Closed - Not Approved', IMAGE("/resource/redSignal","Red",28,24),
+'Closed - Cancelled',IMAGE("/resource/redSignal","Red",28,24),
+'Closed - Filled',IMAGE("/resource/redSignal","Red",28,24),
+'No Image Available'
+)
+-------------------------------------------------------------------------------------------------------------------------------
+LEC-36
+HYPERLINK("https://twitter.com/"+ Your_Twitter_Handle__c , IMAGE("/resource/twittericon", "Connect With Me",28,30 ))
+---------------------------------------------------------------------------------------------------------------
+
